@@ -89,3 +89,12 @@ GO
 SELECT [id], [dni], [nombre], [direccion], [edad], [email]
 FROM [dbo].[alumno]
 GO
+
+
+--Nos indica qué nombre pertenece qué nombre y a cuántas asignaturas pertenece un estudiante.
+Select a.nombre, asig.nombre From alumno a 
+ left join matricula m on m.alumnoId = a.id
+ left join asignatura asig on asig.id = m.asignaturaId 
+ GO
+
+

@@ -64,3 +64,16 @@ var nuevoAlumno2 = new Alumno
                    };
 var resultado2 = alumnoDao.actualizarAlumno(2, nuevoAlumno2);
 Console.WriteLine(resultado2);
+
+
+
+#region alumnoAsignatura desde un JOIN
+
+// Asignatura desde JOIN
+var alumAsig = alumnoDao.SelectAlumAsig();
+foreach (AlumnoAsignatura alumAsig2 in alumAsig)
+{
+    Console.WriteLine(alumAsig2.nombreAlumno + " Asignatura que cursa " + alumAsig2.nombreAsignatura);
+}
+
+#endregion
