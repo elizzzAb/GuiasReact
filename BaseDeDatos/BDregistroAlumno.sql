@@ -97,4 +97,21 @@ Select a.nombre, asig.nombre From alumno a
  left join asignatura asig on asig.id = m.asignaturaId 
  GO
 
+ --guía 8
+ Select * from alumno a 
+left join matricula m on a.id = m.alumnoId
+left join asignatura asig on asig.id = m.asignaturaId
+Where asig.profesor = 'ivan'
+
+Select 
+a.id, a.dni, 
+a.nombre, 
+a.direccion, 
+a.edad, 
+a.email, 
+asig.nombre
+from alumno a 
+left join matricula m on a.id = m.alumnoId
+left join asignatura asig on asig.id = m.asignaturaId
+Where asig.profesor = 'ivan'
 
