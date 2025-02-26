@@ -134,3 +134,8 @@ WHERE a.nombre = 'Miguel';
  Select a.id, a.nombre, s.id, s.nombre From alumno a 
   left join matricula m on a.id = m.alumnoId
   left join asignatura s on m.asignaturaId = s.id
+  
+  --Nuevo registro en calificación (guía 11)
+INSERT INTO [registroAlumno].[dbo].[calificacion] ([descripcion], [nota], [porcentaje], [matriculaId])
+VALUES ('Examen', 8, 100, 11);
+select * from calificacion

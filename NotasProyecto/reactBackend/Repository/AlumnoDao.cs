@@ -83,32 +83,76 @@ namespace reactBackend.Repository
             }
         }
         #endregion
-        #region Delete
 
-        public bool deleteAlumno(int id)
+        //#region Delete
+
+        //public bool deleteAlumno(int id)
+        //{
+        //    var borrar = GetById(id);
+        //    try
+        //    {
+        //        if (borrar == null)
+        //        {
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            contexto.Alumnos.Remove(borrar);
+        //            contexto.SaveChanges();
+        //            return true;
+        //        }
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.InnerException);
+        //        return false;
+        //    }
+        //}
+
+        //#endregion
+
+        #region DeleteAlumno
+        public bool eliminarAlumno(int id)
         {
-            var borrar = GetById(id);
             try
             {
-                if (borrar == null)
+                // Debemos verificar el id del alumno
+                var alumno = contexto.Alumnos.Where(x => x.Id == id).FirstOrDefault();
+                if (alumno != null)
                 {
-                    return false;
-                }
-                else
-                {
-                    contexto.Alumnos.Remove(borrar);
+                    // matriculaAlumno == idALumno
+                    var matriculaA = contexto.Matriculas.Where(x => x.AlumnoId == alumno.Id).ToList();
+                    Console.WriteLine("Alumno  encontrado");
+                    //Traemos la calificaciones asociadas a esa matricula 
+                    foreach (Matricula m in matriculaA)
+                    {
+                        var calificacion = contexto.Calificacions.Where(x => x.MatriculaId == m.Id).ToList();
+                        Console.WriteLine("Matricula encontrada");
+                        contexto.Calificacions.RemoveRange(calificacion);
+
+                    }
+                    contexto.Matriculas.RemoveRange(matriculaA);
+                    contexto.Alumnos.Remove(alumno);
                     contexto.SaveChanges();
                     return true;
                 }
+                else
+                {
+                    Console.WriteLine("Alumno no encontrado");
+                    return false;
+                }
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.InnerException);
+                Console.WriteLine(ex.Message);
                 return false;
+
             }
         }
         #endregion
+
         #region LeftJoin
         public List<AlumnoAsignatura> SelectAlumASig()
         {
