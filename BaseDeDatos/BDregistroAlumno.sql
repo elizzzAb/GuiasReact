@@ -84,6 +84,8 @@ INSERT INTO [dbo].[matricula]([alumnoId],[asignaturaId]) VALUES(9,2);
 INSERT INTO [dbo].[matricula]([alumnoId],[asignaturaId]) VALUES(9,3);
 INSERT INTO [dbo].[matricula]([alumnoId],[asignaturaId]) VALUES(10,4);
 
+--------------------------------------------------------------------------------
+
 Use [registroAlumno]
 GO
 SELECT [id], [dni], [nombre], [direccion], [edad], [email]
@@ -115,3 +117,20 @@ left join matricula m on a.id = m.alumnoId
 left join asignatura asig on asig.id = m.asignaturaId
 Where asig.profesor = 'ivan'
 
+--guía 10
+
+--Select a.id, a.nombre, s.id, s.nombre FROM alumno a 
+--left join matricula m on a.id = m.alumnoId 
+--left join asignatura a on m.asignaturaId = s.id 
+--WHERE a.nombre = 'Miguel';
+
+Select a.id, a.nombre, a.id, a.nombre 
+FROM alumno a
+left join matricula m on a.id = m.alumnoId
+left join asignatura s on m.asignaturaId = s.id
+WHERE a.nombre = 'Miguel';
+
+
+ Select a.id, a.nombre, s.id, s.nombre From alumno a 
+  left join matricula m on a.id = m.alumnoId
+  left join asignatura s on m.asignaturaId = s.id
