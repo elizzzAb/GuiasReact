@@ -19,6 +19,15 @@ namespace WebApi.Controllers
             return _cdao.seleccion(idMatricula);
         }
 
-        #endregion 
+        #endregion
+
+        #region ingresarDatos
+        [HttpPost("califición")]
+        public bool insertar([FromBody] Calificacion calificacion) 
+        { 
+            return _cdao.insertar(calificacion);
+        }
+
+        #endregion
     }
 }
