@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("reactBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+453460c39c4a13dd29340b7f279ba6d60339d44e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9ac4e93437dd5ab78169df246020fbcfa85e53f")]
 [assembly: System.Reflection.AssemblyProductAttribute("reactBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("reactBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

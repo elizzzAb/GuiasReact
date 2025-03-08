@@ -22,12 +22,22 @@ namespace WebApi.Controllers
         #endregion
 
         #region ingresarDatos
-        [HttpPost("califición")]
+        [HttpPost("Calificación")]
         public bool insertar([FromBody] Calificacion calificacion) 
         { 
             return _cdao.insertar(calificacion);
         }
 
         #endregion
+
+
+        #region EliminarCalificaciones
+        [HttpDelete("Calificación")]
+        public bool delete(int idCalificacion)
+        {
+            return _cdao.eliminarCalificacion(idCalificacion);
+        }
+        #endregion
+
     }
 }
